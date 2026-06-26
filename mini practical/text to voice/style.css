@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.hero {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to top right , #061c5a,rgb(118, 53, 131));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container{
+  width: 600px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.container h1{
+  color: #fff;
+  padding: 5px;
+}
+.container h1 span{
+  color: #ff3232;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #fff;
+}
+.container textarea{
+  background-color: #ffffff48;
+  border-radius: 5px;
+  min-height: 200px;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px;
+  resize: none;
+  line-height: 2;
+}
+.container textarea::placeholder{
+  font-size: 14px;
+  color: #ffffffc4;
+}
+.container .row{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+}
+.row .select-box{
+
+
+}
+.container .row select{
+  flex: 1;
+  width: 100%;
+  height: 40px;
+  padding: 5px;
+  background-color: #403d84;
+  color: #fff;
+  border-radius: 5px;
+  border: 0;
+  outline: 0;
+  appearance: none;
+  cursor: pointer;
+  background-image: url(keyboard_arrow_down_24dp_E3E3E3_FILL1_wght400_GRAD0_opsz24.svg);
+  background-position-x: calc(100% - 5px);
+  background-position-y: center;
+  background-repeat: no-repeat;
+  background-size: 8%;
+}
+
+
+.container .row button{
+  width: 80px;
+  height: 40px;
+  border: 0;
+  outline: 0;
+  background-color: #ff3232;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  cursor: pointer;
+}

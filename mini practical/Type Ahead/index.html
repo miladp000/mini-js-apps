@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Type Ahead 👀</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="https://fav.farm/🔥" />
+  </head>
+  <body>
+    <form class="search-form">
+      <input type="text" class="search" placeholder="City or State" />
+      <ul class="suggestions">
+        <li>Filter for a city</li>
+        <li>or a state</li>
+      </ul>
+    </form>
+    <script>
+// Variables and Assignings---------------------------------------------
+      const ENDPOINT =
+        "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
+
+      const searchInput = document.querySelector("input");
+      const suggestions = document.querySelector(".suggestions");
+
+      let cities = [];
+
+      loadData(ENDPOINT);
+
+//----------------------------------------------------------start of functions
+
+
+// start fanction for state managment----------------------------
+      function startApp() {
+        searchInput.addEventListener("change", toDisplay);
+        searchInput.addEventListener("input", toDisplay);
+      }
+//----------------------------------------------------------end startApp
+
+      
+
+// Loading Data(Data of Cities)------------------
+      async function loadData(endpoint) {
+        try {
+          let res = await fetch(endpoint);
+          let data = await res.json();
+          cities = data;
+          startApp();
+
+        } catch (err) {
+          console.log("Error :",err);
+        }
+      }
+//----------------------------------------------------------end loadData
+
+
+
+// for display data on html----------------------------
+      function toDisplay() {
+        const matchedArray = findMatch(this.value, cities);
+        const suggestionsHtml = matchedArray
+          .map((place) => {
+            const regex = new RegExp(this.value, "gi");
+            const cityName = place.city.replace(
+              regex,
+              `<span class="hl">${this.value}</span>`
+            );
+            const stateName = place.state.replace(
+              regex,
+              `<span class="hl">${this.value}</span>`
+            );
+            return `
+                <li>
+                  <span class="name">${cityName}, ${stateName}</span>
+                  <span class="population">${numberWithCommas(place.population)}</span>
+                </li>
+                `;
+          })
+          .join("");
+        suggestions.innerHTML = suggestionsHtml;
+      }
+//----------------------------------------------------------end toDisplay
+
+
+
+//for find cities that are match with our input ------------------------
+      function findMatch(wordToMatch, cities) {
+        return cities.filter((place) => {
+          const regex = new RegExp(wordToMatch, "gi");
+          return place.city.match(regex) || place.city.match(regex);
+        });
+      }
+//----------------------------------------------------------end findMatch
+
+
+
+// to change a vanila number to number with commas ----------------------
+      function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      }
+//----------------------------------------------------------end numberWithCommas
+
+
+     
+    </script>
+  </body>
+</html>

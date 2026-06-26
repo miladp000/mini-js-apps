@@ -1,0 +1,108 @@
+@font-face {
+        font-family: myFont;
+        src: url(fonts/Roboto_Condensed/RobotoCondensed-VariableFont_wght.ttf);
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: myFont;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg , #9e54ff , #00008a);
+    padding: 10px;
+}
+.to-do{
+    width: 100%;
+    max-width: 540px;
+    background-color: #fff;
+    padding: 20px;
+    margin: 100px auto 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px 10px rgba(0, 0, 0, 0.3);
+}
+.to-do h2{
+    font-family: myFont;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.to-do h2 img{
+    width: 35px;
+    margin-left: 10px;
+}
+.input-box{
+    width: 100%;
+    background-color: #eee;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+}
+.input-box input{
+    flex : 1;
+    padding: 15px 20px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-radius: 30px;
+}
+.input-box button{
+    padding: 15px 35px;
+    border: none;
+    border-radius: 30px;
+    background-color: #f58c14;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+ul.lists li{
+    padding: 10px 20px 10px 60px;
+    margin: 6px 0;
+    list-style: none;
+    position: relative;
+    cursor: pointer;
+    transition: background-color .3s ease;
+    border-radius: 30px;
+    user-select: none;
+}
+ul.lists li:hover{
+    background-color: #eee;
+}
+ul.lists li::before{
+    content: "";
+    width: 40px;
+    height: 40px;
+    background-image: url(images/unchecked.png);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+ul.lists li.checked{
+    text-decoration: line-through;
+}
+ul.lists li.checked::before{
+    background-image: url(images/checked.png);
+}
+li span{
+    position:absolute;
+    right: 0;
+    top: 0;
+    background-color: #ddd;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 50%;
+    transition: background-color .3s ease;
+}
+li span:hover{
+    background-color: #aaa;
+}

@@ -1,0 +1,73 @@
+@font-face {
+    font-family: myFont;
+    src: url(Fonts/English/Noto_Naskh_Arabic/NotoNaskhArabic-VariableFont_wght.ttf);
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: myFont;
+}
+body{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #003057;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    padding: 10px;
+    margin: 100px 50px;
+    width: 80%;
+    max-width: 600px;
+}
+.container h1{
+    color: #fff;
+    font-weight: 700;
+}
+.container h1 div{
+    color: #00bd6e;
+    border-bottom: 2px solid #00bd6e;
+}
+.input-box{
+position: relative;
+width:100%;
+}
+.input-box input{
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    border: 0;
+    outline: 0;
+    border-radius: 4px;
+}
+.input-box img{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: 10px;
+    top: 25%;
+    cursor: pointer;
+    transition: transform .3s ease;
+}
+.input-box img:hover{
+    transform: translateY(-2px);
+}
+.container button{
+    padding: 10px 20px;
+    font-size: 20px;
+    text-align: start;
+    border: 0;
+    background-color: #28996a;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.container button img{
+    width: 24px;
+    margin-right: 5px;
+}

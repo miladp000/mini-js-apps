@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Ring or Loader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="click">click on circle</div>
+    <div class="container">
+        <div class="outer"></div>
+        <div class="inner">
+            <span>0%</span>
+        </div>
+    </div>
+    
+    <script>
+        let outer = document.querySelector(".outer");
+        let inner = document.querySelector('.inner');
+        let percent = inner.querySelector('span');
+        
+        let count = 0;
+        let isloading = false;
+        let loading;
+        
+        inner.addEventListener("click" , function(){
+            
+            if(!isloading){
+                loading = setInterval(animate,100);
+                isloading = true;
+            }
+            else{
+                clearInterval(loading);
+                isloading = false;
+            }
+            
+            function animate(){
+                if(count >= 100){
+                    outer.classList.remove('active-loader');
+                    outer.classList.add('active-loader2');
+                    clearInterval(loading);
+                }else
+                {
+                    outer.classList.add('active-loader');
+                    count++;
+                    percent.textContent = count + "%"
+                }
+            }
+        })
+    </script>
+</body>
+</html>
